@@ -1,0 +1,12 @@
+:root {
+  --bg: #0b0f17;
+  --text: #e6edf7;
+  --muted: #8b9bb5;
+  --border: #283244;
+  --accent: #4f8cff;
+  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+a { color: var(--text); text-decoration: none; }
