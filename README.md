@@ -81,3 +81,23 @@ DNove/
 3. 在 `EditorView.vue` 接入可拖拽树组件（如 VueDraggable）并绑定章节文件。  
 4. 加入章节快照、diff、回滚命令与 UI。  
 5. 引入本地向量检索（可通过 Rust sidecar 或 Python sidecar）。
+
+## 面向普通 Windows 用户的发布方式（带启动器）
+
+为了让非技术用户“下载后就能打开”，建议使用以下发布形态：
+
+1. 用安装包发布（`nsis`/`msi`），用户双击安装即可。  
+2. 把仓库中的 `DNove-Launcher.bat` 一并放到发行目录，作为可见的“启动器”。  
+3. 启动器会自动尝试以下位置并启动 `DNove.exe`：
+   - 与启动器同目录
+   - `%LOCALAPPDATA%\Programs\DNove\`
+   - `%ProgramFiles%\DNove\`
+   - `%ProgramFiles(x86)%\DNove\`
+
+### 构建命令
+
+```bash
+npm run build:windows
+```
+
+该命令会调用 Tauri 生成 Windows 安装包（NSIS + MSI），适合直接发给普通用户安装使用。
